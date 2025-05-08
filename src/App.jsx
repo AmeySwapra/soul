@@ -8,6 +8,10 @@ import ContactPage from './pages/ContactPage'
 import MemberShipPage from './pages/MemberShipPage'
 import GiftPage from './pages/GiftPage'
 import CorporatePage from './pages/CorporatePage'
+import CartPage from './pages/CartPage'
+import AccountPage from './pages/AccountPage'
+import WishListPage from './pages/WishListPage'
+import AskFranchisePage from './pages/AskFranchisePage'
 
 function App() {
   return (
@@ -22,6 +26,11 @@ function App() {
           <Route path='/gift' element={<GiftPage/>} />
           <Route path='/membership-plan' element={<MemberShipPage/>} />
           <Route path='/corporate-packages' element={<CorporatePage/>} />
+          <Route path='/cart' element={<CartPage/>} />
+          <Route path='/checkout' element={<CartPage/>} />
+          <Route path='/account' element={<AccountPage/>} />
+          <Route path='/wishlist' element={<WishListPage/>} />
+          <Route path='/franchise' element={<AskFranchisePage/>} />
         </Routes>
       </BrowserRouter>
     </>

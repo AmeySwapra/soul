@@ -22,11 +22,11 @@ export default function FooterSection() {
   const color = useColorModeValue('white', 'gray.200');
 
   return (
-    <Box as="footer" bg={bg} color={color} py={10}>
+    <Box as="footer" bg={bg} color={color} py={10} px={[4,8,16]}>
       <Container maxW="container.xl">
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8} mb={10}>
           {/* Contact Info & Newsletter */}
-          <Stack spacing={4}>
+          <Stack spacing={4} >
             <Heading size="md">Contact</Heading>
             <Link href="mailto:contact@soulessencespa.in">contact@soulessencespa.in</Link>
             <Link href="tel:+919371457979">+91 93714 57979</Link>
@@ -60,13 +60,14 @@ export default function FooterSection() {
           <Stack spacing={4}>
             <Heading size="md">Links</Heading>
             <VStack align="start" spacing={2}>
-              <Link href="/membership-plan/">Membership Plan</Link>
-              <Link href="/gift-card/">Gift Card</Link>
-              <Link href="/cart/">Cart</Link>
-              <Link href="/checkout/">Checkout</Link>
-              <Link href="/my-account/">My Account</Link>
-              <Link href="/wishlist/">Wishlist</Link>
-              <Link href="/franchise/">Ask for Franchise</Link>
+              <Link href="/membership-plan">Membership Plan</Link>
+              <Link href="/gift">Gift Card</Link>
+              <Link href="/corporate-packages">Corporate Plan</Link>
+              <Link href="/cart">Cart</Link>
+              <Link href="/checkout">Checkout</Link>
+              <Link href="/account">My Account</Link>
+              <Link href="/wishlist">Wishlist</Link>
+              <Link href="/franchise">Ask for Franchise</Link>
             </VStack>
           </Stack>
 
@@ -109,7 +110,7 @@ export default function FooterSection() {
 
           {/* Developer */}
           <Text>
-            Developed &amp; Maintained by <Link href="https://craftycode.in" isExternal>craftycode.in</Link>
+            Developed &amp; Maintained by <Link href="#" isExternal>swapra technologies</Link>
           </Text>
         </Flex>
       </Container>
