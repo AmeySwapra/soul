@@ -24,8 +24,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  useBreakpointValue,
-  Icon
+  useBreakpointValue
 } from '@chakra-ui/react';
 import { FiSearch, FiShoppingCart, FiMenu } from 'react-icons/fi';
 import { useState, useRef } from 'react';
@@ -37,51 +36,59 @@ export default function Header() {
   const btnRef = useRef();
   const isDesktop = useBreakpointValue({ base: false, lg: true });
 
+  const gold = 'gold';
+
+  const navLinkStyle = {
+    color: "#eac169",
+    _hover: { color: 'orange.300' },
+    cursor: 'pointer'
+  };
+
   const renderDesktopNav = () => (
-    <Flex display={{ base: 'none', lg: 'flex' }} gap={6} fontWeight="medium">
-      <Box as="a" href="/">Home</Box>
-      <Box as="a" href="/about-us">About Us</Box>
-      
+    <Flex display={{ base: 'none', lg: 'flex' }} gap={6} fontWeight="medium" align="center">
+      <Box as="a" href="/" {...navLinkStyle}>Home</Box>
+      <Box as="a" href="/about-us" {...navLinkStyle}>About Us</Box>
+
       <Popover trigger="hover" placement="bottom-start">
         <PopoverTrigger>
-          <Box cursor="pointer" _hover={{ color: 'red.500' }}>Services</Box>
+          <Box {...navLinkStyle}>Services</Box>
         </PopoverTrigger>
-        <PopoverContent w="auto" border="none" boxShadow="xl">
+        <PopoverContent w="auto" bg="black" border="none" boxShadow="xl">
           <PopoverBody p={4}>
             <Stack spacing={4}>
-              <Heading size="md">Services</Heading>
+              
               <VStack align="start" spacing={2}>
-                <Link href="/express-therapy/" _hover={{ color: 'red.500' }}>Express Therapy</Link>
-                <Link href="/immunity-booster-therapy/" _hover={{ color: 'red.500' }}>Immunity Booster Therapy</Link>
-                <Link href="/anti-fatigue-therapy/" _hover={{ color: 'red.500' }}>Anti-Fatigue Therapy</Link>
-                <Link href="/pain-relief-therapy/" _hover={{ color: 'red.500' }}>Pain Relief Therapy</Link>
-                <Link href="/skincare-therapy/" _hover={{ color: 'red.500' }}>Skincare Therapy</Link>
-                <Link href="/relaxation-therapy/" _hover={{ color: 'red.500' }}>Relaxation Therapy</Link>
+                <Link href="/detail-service/express-therapy" {...navLinkStyle}>Express Therapy</Link>
+                <Link href="/detail-service/immunity-booster-therapy" {...navLinkStyle}>Immunity Booster Therapy</Link>
+                <Link href="/detail-service/anti-fatigue-therapy" {...navLinkStyle}>Anti-Fatigue Therapy</Link>
+                <Link href="/detail-service/pain-relief-therapy" {...navLinkStyle}>Pain Relief Therapy</Link>
+                <Link href="/detail-service/skincare-therapy" {...navLinkStyle}>Skincare Therapy</Link>
+                <Link href="/detail-service/relaxation-therapy" {...navLinkStyle}>Relaxation Therapy</Link>
               </VStack>
             </Stack>
           </PopoverBody>
         </PopoverContent>
       </Popover>
 
-      <Box as="a" href="/packages">Packages</Box>
-      
+      <Box as="a" href="/packages" {...navLinkStyle}>Packages</Box>
+
       <Popover trigger="hover" placement="bottom-start">
         <PopoverTrigger>
-          <Box cursor="pointer" _hover={{ color: 'red.500' }}>Membership</Box>
+          <Box {...navLinkStyle}>Membership</Box>
         </PopoverTrigger>
-        <PopoverContent w="auto" border="none" boxShadow="xl">
+        <PopoverContent w="auto" bg="black" border="none" boxShadow="xl">
           <PopoverBody p={4}>
             <VStack align="start" spacing={2}>
-              <Link href="/membership-plan" _hover={{ color: 'red.500' }}>Membership Plan</Link>
-              <Link href="/gift" _hover={{ color: 'red.500' }}>Gift Card</Link>
-              <Link href="/corporate-packages" _hover={{ color: 'red.500' }}>Corporate Plan</Link>
+              <Link href="/membership-plan" {...navLinkStyle}>Membership Plan</Link>
+              <Link href="/gift" {...navLinkStyle}>Gift Card</Link>
+              <Link href="/corporate-packages" {...navLinkStyle}>Corporate Plan</Link>
             </VStack>
           </PopoverBody>
         </PopoverContent>
       </Popover>
 
-      <Box as="a" href="/gallery">Gallery</Box>
-      <Box as="a" href="/contact">Contact</Box>
+      <Box as="a" href="/gallery" {...navLinkStyle}>Gallery</Box>
+      <Box as="a" href="/contact" {...navLinkStyle}>Contact</Box>
     </Flex>
   );
 
@@ -94,17 +101,13 @@ export default function Header() {
         variant="ghost"
         aria-label="Open Menu"
         ref={btnRef}
+        color={gold}
       />
-      
-      <Drawer
-        isOpen={isDrawerOpen}
-        placement="left"
-        onClose={onDrawerClose}
-        finalFocusRef={btnRef}
-      >
+
+      <Drawer isOpen={isDrawerOpen} placement="left" onClose={onDrawerClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
+        <DrawerContent bg="black" color={gold}>
+          <DrawerCloseButton color={gold} />
           <DrawerHeader borderBottomWidth="1px">
             <Image
               src="https://soulessencespa.in/wp-content/uploads/2022/08/SElogo-removebg-preview.png"
@@ -114,38 +117,38 @@ export default function Header() {
           </DrawerHeader>
           <DrawerBody py={4}>
             <VStack align="start" spacing={4}>
-              <Link href="/" onClick={onDrawerClose}>Home</Link>
-              <Link href="/about-us" onClick={onDrawerClose}>About Us</Link>
-              
+              <Link href="/" onClick={onDrawerClose} {...navLinkStyle}>Home</Link>
+              <Link href="/about-us" onClick={onDrawerClose} {...navLinkStyle}>About Us</Link>
+
               <Menu>
-                <MenuButton as={Box} w="full" textAlign="left">
+                <MenuButton as={Box} w="full" textAlign="left" {...navLinkStyle}>
                   Services
                 </MenuButton>
-                <MenuList>
-                  <MenuItem as={Link} href="/express-therapy/">Express Therapy</MenuItem>
-                  <MenuItem as={Link} href="/immunity-booster-therapy/">Immunity Booster Therapy</MenuItem>
-                  <MenuItem as={Link} href="/anti-fatigue-therapy/">Anti-Fatigue Therapy</MenuItem>
-                  <MenuItem as={Link} href="/pain-relief-therapy/">Pain Relief Therapy</MenuItem>
-                  <MenuItem as={Link} href="/skincare-therapy/">Skincare Therapy</MenuItem>
-                  <MenuItem as={Link} href="/relaxation-therapy/">Relaxation Therapy</MenuItem>
+                <MenuList bg="black" border="none">
+                  <MenuItem as={Link} href="/detail-service/express-therapy" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Express Therapy</MenuItem>
+                  <MenuItem as={Link} href="/detail-service/immunity-booster-therapy" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Immunity Booster Therapy</MenuItem>
+                  <MenuItem as={Link} href="/detail-service/anti-fatigue-therapy" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Anti-Fatigue Therapy</MenuItem>
+                  <MenuItem as={Link} href="/detail-service/pain-relief-therapy" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Pain Relief Therapy</MenuItem>
+                  <MenuItem as={Link} href="/detail-service/skincare-therapy" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Skincare Therapy</MenuItem>
+                  <MenuItem as={Link} href="/detail-service/relaxation-therapy" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Relaxation Therapy</MenuItem>
                 </MenuList>
               </Menu>
-              
-              <Link href="/packages" onClick={onDrawerClose}>Packages</Link>
-              
+
+              <Link href="/packages" onClick={onDrawerClose} {...navLinkStyle}>Packages</Link>
+
               <Menu>
-                <MenuButton as={Box} w="full" textAlign="left">
+                <MenuButton as={Box} w="full" textAlign="left" {...navLinkStyle}>
                   Membership
                 </MenuButton>
-                <MenuList>
-                  <MenuItem as={Link} href="/membership-plan">Membership Plan</MenuItem>
-                  <MenuItem as={Link} href="/gift">Gift Card</MenuItem>
-                  <MenuItem as={Link} href="/corporate-packages">Corporate Plan</MenuItem>
+                <MenuList bg="black" border="none">
+                  <MenuItem as={Link} href="/membership-plan" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Membership Plan</MenuItem>
+                  <MenuItem as={Link} href="/gift" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Gift Card</MenuItem>
+                  <MenuItem as={Link} href="/corporate-packages" bg="black" _hover={{ bg: 'gray.700' }} color={gold}>Corporate Plan</MenuItem>
                 </MenuList>
               </Menu>
-              
-              <Link href="/gallery" onClick={onDrawerClose}>Gallery</Link>
-              <Link href="/contact" onClick={onDrawerClose}>Contact</Link>
+
+              <Link href="/gallery" onClick={onDrawerClose} {...navLinkStyle}>Gallery</Link>
+              <Link href="/contact" onClick={onDrawerClose} {...navLinkStyle}>Contact</Link>
             </VStack>
           </DrawerBody>
         </DrawerContent>
@@ -156,13 +159,14 @@ export default function Header() {
   return (
     <Box
       w="100%"
-      bg="white"
+      bg="black"
       boxShadow="md"
       position="sticky"
       top={0}
       zIndex={10}
       px={{ base: 4, lg: 6 }}
       py={3}
+      color={gold}
     >
       <Flex justify="space-between" align="center">
         {/* Left: Logo */}
@@ -186,14 +190,16 @@ export default function Header() {
             onClick={onSearchToggle}
             variant="ghost"
             aria-label="Search"
+            color={gold}
           />
-         <Link href='/cart'>
-         <IconButton
-            icon={<FiShoppingCart />}
-            variant="ghost"
-            aria-label="Cart"
-          />
-         </Link>
+          <Link href="/cart">
+            <IconButton
+              icon={<FiShoppingCart />}
+              variant="ghost"
+              aria-label="Cart"
+              color={gold}
+            />
+          </Link>
         </Flex>
       </Flex>
 
@@ -204,7 +210,7 @@ export default function Header() {
           top="50%"
           left="50%"
           transform="translate(-50%, -50%)"
-          bg="white"
+          bg="black"
           boxShadow="xl"
           p={6}
           borderRadius="lg"
@@ -217,6 +223,9 @@ export default function Header() {
             onChange={(e) => setSearchTerm(e.target.value)}
             size="lg"
             w={["80vw", "400px"]}
+            color={gold}
+            bg="gray.900"
+            _placeholder={{ color: 'gray.500' }}
           />
         </VStack>
       </SlideFade>

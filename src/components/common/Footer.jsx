@@ -47,12 +47,12 @@ export default function FooterSection() {
           <Stack spacing={4}>
             <Heading size="md">Services</Heading>
             <VStack align="start" spacing={2}>
-              <Link href="/express-therapy/">Express Therapy</Link>
-              <Link href="/immunity-booster-therapy/">Immunity Booster Therapy</Link>
-              <Link href="/anti-fatigue-therapy/">Anti-Fatigue Therapy</Link>
-              <Link href="/pain-relief-therapy/">Pain Relief Therapy</Link>
-              <Link href="/skincare-therapy/">Skincare Therapy</Link>
-              <Link href="/relaxation-therapy/">Relaxation Therapy</Link>
+              <Link href="/detail-service/express-therapy/">Express Therapy</Link>
+              <Link href="/detail-service/immunity-booster-therapy/">Immunity Booster Therapy</Link>
+              <Link href="/detail-service/anti-fatigue-therapy/">Anti-Fatigue Therapy</Link>
+              <Link href="/detail-service/pain-relief-therapy/">Pain Relief Therapy</Link>
+              <Link href="/detail-service/skincare-therapy/">Skincare Therapy</Link>
+              <Link href="/detail-service/relaxation-therapy/">Relaxation Therapy</Link>
             </VStack>
           </Stack>
 

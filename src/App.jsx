@@ -12,6 +12,7 @@ import CartPage from './pages/CartPage'
 import AccountPage from './pages/AccountPage'
 import WishListPage from './pages/WishListPage'
 import AskFranchisePage from './pages/AskFranchisePage'
+import DetailServicePage from './pages/DetailServicePage'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path='/account' element={<AccountPage/>} />
           <Route path='/wishlist' element={<WishListPage/>} />
           <Route path='/franchise' element={<AskFranchisePage/>} />
+          <Route path='/detail-service/:title' element={<DetailServicePage/>} />
         </Routes>
       </BrowserRouter>
     </>
